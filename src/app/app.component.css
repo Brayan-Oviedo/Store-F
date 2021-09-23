@@ -1,0 +1,14 @@
+.container {
+    padding: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container .mat-form-field {
+    /*padding: 4%;*/
+  }
+    
+  .container .mat-form-field {
+    width: 50%;
+  }

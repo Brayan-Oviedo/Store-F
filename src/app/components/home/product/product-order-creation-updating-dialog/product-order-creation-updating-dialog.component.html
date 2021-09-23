@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content>
+
+    <mat-card>
+        <div fxLayput="row">
+
+            <div fxLayout="column" class="">
+
+
+                <mat-form-field appearance="fill" class="my-form-field">
+                    <mat-label>Referencia</mat-label>
+                    <input [(ngModel)]="product.reference" [ngModelOptions]="{standalone: true}" matInput placeholder="Ingrese la referencia">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="my-form-field">
+                    <mat-label>Unidades</mat-label>
+                    <input [(ngModel)]="product.units" [ngModelOptions]="{standalone: true}" type="number" matInput placeholder="0">
+                </mat-form-field>
+            </div>
+
+            <button class="btn" mat-flat-button color="warn" [mat-dialog-close]="product">Agregar</button>
+
+        </div>
+    </mat-card>
+
+</mat-dialog-content>

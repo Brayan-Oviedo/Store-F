@@ -1,18 +1,44 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './components/menu/menu.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+
+
+import { DatePipe } from '@angular/common';
+import { ListProductsComponent } from './components/shared/list-products/list-products.component';
+import { SharedModule } from './shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from './shared/core.module';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    ListProductsComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    SharedModule,
+    CoreModule,
+    FlexLayoutModule
   ],
-  providers: [],
+  exports: [
+    BrowserAnimationsModule,
+    FlexLayoutModule
+  ],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

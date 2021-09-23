@@ -1,0 +1,48 @@
+/*.container {
+  padding: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}*/
+  
+.mat-form-field {
+  padding: 2% 2% 0 2%;
+  width: 33%;
+}
+  
+.container form {
+  margin-bottom: 20px;
+}
+  
+.container form > * {
+  margin: auto;
+}
+  
+.container .mat-radio-button {
+  margin: 0 12px;
+}
+
+
+mat-card {
+  background-color: #f6f6f6;
+}
+
+mat-label {
+  margin-bottom: 2%;
+}
+
+
+
+
+
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}

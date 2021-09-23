@@ -1,0 +1,16 @@
+mat-grid-list {
+    background-color: chartreuse;
+}
+
+mat-grid-tile {
+    background-color: darkblue;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+}
+
+#menu {
+    padding: 1%;
+}
