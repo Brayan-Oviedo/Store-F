@@ -26,7 +26,6 @@ export class FormOrderComponent implements OnInit {
   order = new OrderSaleRequest();
   list = of(this.order.products);
   formClient!: FormGroup;
-  client: Client = new Client();
 
 
 
@@ -90,7 +89,7 @@ export class FormOrderComponent implements OnInit {
   }
 
   setOrder() {
-    this.formClient.patchValue(this.client);
+    this.order.client = this.formClient.value;
     this.orderService.createOrderSale(this.order)
     .subscribe(
       result => {
@@ -111,6 +110,7 @@ export class FormOrderComponent implements OnInit {
           this.order.totalCost = 0;
           this.order.products = [];
           this.list = of([]);
+          this.formClient.patchValue(new Client())
           Message.throwMessageSuccess('', 'Orden cancelada');
         },fail => {
           Message.throwMessageError('', fail.error.mssg);
