@@ -109,6 +109,7 @@ export class FormOrderComponent implements OnInit {
       .subscribe(
         result => {
           this.order.totalCost = 0;
+          this.order.products = [];
           this.list = of([]);
           Message.throwMessageSuccess('', 'Orden cancelada');
         },fail => {
