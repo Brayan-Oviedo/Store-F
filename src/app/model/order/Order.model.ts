@@ -4,7 +4,7 @@ import { ProductRequest } from "../product/ProductRequest.model";
 
 export class Order {
     id: number = 0;
-    client: Client = new Client();
+    client?: Client;
     products = new Array<ProductRequest>();
     totalCost: number = 0;
 }

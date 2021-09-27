@@ -98,7 +98,7 @@ export class FormOrderComponent implements OnInit {
         this.order.id = result.id
         Message.throwMessageSuccess('', '');
       },fail => {
-        Message.throwMessageError('', fail.error.mssg);
+        Message.throwMessageError('', fail.error.mssg);        
       }
     );
   }
@@ -108,6 +108,8 @@ export class FormOrderComponent implements OnInit {
       this.orderService.cancelOrderSale(this.order.id)
       .subscribe(
         result => {
+          this.order.totalCost = 0;
+          this.list = of([]);
           Message.throwMessageSuccess('', 'Orden cancelada');
         },fail => {
           Message.throwMessageError('', fail.error.mssg);
