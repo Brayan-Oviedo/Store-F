@@ -32,7 +32,7 @@ export class FormOrderSeparateComponent implements OnInit {
       payReceived: ['']
     })
 
-    this.formOrder.patchValue(this.client);
+   // this.formOrder.patchValue(this.client);
   }
 
 }
