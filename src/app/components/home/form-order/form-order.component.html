@@ -1,56 +1,37 @@
 <div class="container">
+  <mat-card>
+    <div class="buttom-row">
+      <button (click)="setOrder()" class="btn" gdArea="right" mat-flat-button color="warn">Vender</button> 
+      <mat-label *ngIf="order.totalCost > 0">Costo total:  $ {{order.totalCost}}</mat-label>
+      <button (click)="cancelOrder()" class="btn" gdArea="right" mat-flat-button color="warn">Cancelar</button> 
+    </div>
+  </mat-card>
+  
 
-    <div class="flex-container" fxLayout="row" fxLayout.md="column" fxLayoutAlign="space-between">
+  <div>
+    <app-crud (create)="create()" (read)="read($event)" (update)="update($event)" (delete)="remove($event)"
+    [data]="list" [title]="title" [deleteAction]="true" [readAction]="false"></app-crud>
+  </div>
 
-      <mat-card>
-        <div fxLayout="column">
-          <mat-label>Costo total:  $ 2000</mat-label>
-
-          <button (click)="setOrder()" class="btn" gdArea="right" mat-flat-button color="warn">Vender</button> 
-          <button (click)="cancelOrder()" class="btn" gdArea="right" mat-flat-button color="warn">Cancelar</button> 
-
-        </div>
-      </mat-card>
-      
-
-      <div>
-        <app-crud (create)="create()" (read)="read($event)" (update)="update($event)" (delete)="remove($event)"
-        [data]="list" [title]="title" [deleteAction]="true"></app-crud>
-      </div>
-
-      <form [formGroup]="formOrder" *ngIf="true">
-        <div fxLayout="column" fxFill>
-          
-          <mat-form-field appearance="fill" class="my-form-field">
-            <mat-label>Dias Habiles</mat-label>
-            <input matInput placeholder="Ingrese el nombre" formControlName="bussinessDays">
-          </mat-form-field>
-      
-          <mat-form-field appearance="fill" class="my-form-field">
-            <mat-label>Pago recibido</mat-label>
-            <input matInput placeholder="Ingrese la identificacion" formControlName="payReceived">
-          </mat-form-field>
-        </div>
-       </form>
-
-     <form [formGroup]="formClient">
-      <div fxLayout="column" fxFill>
+  <mat-card>
+    <form [formGroup]="formClient">
+      <div class="input-row">
         
-        <mat-form-field appearance="fill" class="my-form-field">
+        <mat-form-field class="input">
           <mat-label>Nombre</mat-label>
-          <input matInput placeholder="Ingrese el nombre" formControlName="name">
+          <input type="text" matInput placeholder="Ingrese el nombre" formControlName="name">
         </mat-form-field>
     
-        <mat-form-field appearance="fill" class="my-form-field">
+        <mat-form-field class="input">
           <mat-label>Identificacion</mat-label>
-          <input matInput placeholder="Ingrese la identificacion" formControlName="identification">
+          <input type="text" matInput placeholder="Ingrese la identificacion" formControlName="identification">
         </mat-form-field>
     
-        <mat-form-field appearance="fill" class="my-form-field">
+        <mat-form-field class="input">
           <mat-label>Numero de telefono</mat-label>
           <input type="number" matInput placeholder="Ingrese un numero de telefono" formControlName="phoneNumber">
         </mat-form-field>
       </div>
      </form>
-    </div>
+  </mat-card>
 </div>

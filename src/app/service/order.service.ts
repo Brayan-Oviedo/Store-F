@@ -23,8 +23,8 @@ export class OrderService {
     return this.http.post<any>(this.URL_BASE + '/createOrderSale', order, this.httpOptions);
   }
 
-  canceleOrderSale(id: number): Observable<any> {
-    return this.http.delete<any>(this.URL_BASE + '/canceleOrder/' + id  );
+  cancelOrderSale(id: number): Observable<any> {
+    return this.http.put<any>(this.URL_BASE + '/cancelOrder/' + id.toString(), this.httpOptions);
   }
 
 }

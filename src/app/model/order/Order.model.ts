@@ -1,9 +1,9 @@
 import { Client } from "../client/Client.model";
-import { Product } from "../product/Product.model";
 import { ProductRequest } from "../product/ProductRequest.model";
 
 
 export class Order {
-    client?: Client;
+    client: Client = new Client();
     products = new Array<ProductRequest>();
+    totalCost: number = 0;
 }

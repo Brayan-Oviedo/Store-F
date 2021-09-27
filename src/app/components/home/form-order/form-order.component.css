@@ -1,28 +1,12 @@
-/*.container {
-  padding: auto;
+
+.container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-content: center;
   justify-content: center;
-}*/
-  
-.mat-form-field {
-  padding: 2% 2% 0 2%;
-  width: 33%;
+  padding: 6%;
 }
   
-.container form {
-  margin-bottom: 20px;
-}
-  
-.container form > * {
-  margin: auto;
-}
-  
-.container .mat-radio-button {
-  margin: 0 12px;
-}
-
-
 mat-card {
   background-color: #f6f6f6;
 }
@@ -31,18 +15,23 @@ mat-label {
   margin-bottom: 2%;
 }
 
-
-
-
-
-.demo-table {
-  width: 100%;
+.buttom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.demo-button-container {
-  padding-bottom: 16px;
+.input-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.demo-button + .demo-button {
-  margin-left: 8px;
+.input-row .input {
+  width: 45%;
+}
+
+form {
+  margin-top: 20px;
 }

@@ -1,0 +1,30 @@
+<div class="container">
+    <mat-card>
+        <div class="buttom-row">
+          <button  class="btn" gdArea="right" mat-flat-button color="warn">Separar</button> 
+          <mat-label *ngIf="orderSeparate.totalCost > 0">Costo total:  $ {{orderSeparate.totalCost}}</mat-label>
+          <button  class="btn" gdArea="right" mat-flat-button color="warn">Cancelar</button> 
+        </div>
+      </mat-card>
+      
+
+      <div>
+        <app-crud 
+        [data]="list" [title]="title" [deleteAction]="true"></app-crud>
+      </div>
+
+      <form [formGroup]="formOrder">
+        <div class="input-row">
+          
+          <mat-form-field appearance="fill" class="my-form-field">
+            <mat-label>Dias Habiles</mat-label>
+            <input matInput placeholder="Ingrese el nombre" formControlName="bussinessDays">
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill" class="my-form-field">
+            <mat-label>Pago recibido</mat-label>
+            <input matInput placeholder="Ingrese la identificacion" formControlName="payReceived">
+          </mat-form-field>
+        </div>
+       </form>
+</div> 

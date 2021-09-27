@@ -8,7 +8,8 @@ const routes: Routes = [{
   component: HomeComponent,
   children: [
     {path: '', pathMatch: 'full', redirectTo: '/'},
-    {path: 'order', component: FormOrderComponent}
+    {path: 'order', component: FormOrderComponent},
+    {path: 'order-separate', component: FormOrderComponent}
   ]
 }];
 

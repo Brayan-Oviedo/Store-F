@@ -11,6 +11,7 @@ export class CrudComponent {
   @Input() title = '...';
   @Input() createAction = true;
   @Input() readAction = true;
+  @Input() iconReadAction = 'visibility';
   @Input() updateAction = true;
   @Input() deleteAction = true;
   @Output() create = new EventEmitter<any>();

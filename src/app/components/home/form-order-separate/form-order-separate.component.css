@@ -1,0 +1,37 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 6%;
+  }
+    
+  mat-card {
+    background-color: #f6f6f6;
+  }
+  
+  mat-label {
+    margin-bottom: 2%;
+  }
+  
+  .buttom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .input-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .input-row .input {
+    width: 45%;
+  }
+  
+  form {
+    margin-top: 6%;
+  }

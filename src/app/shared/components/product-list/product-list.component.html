@@ -1,0 +1,6 @@
+<mat-dialog-content>
+    <div>
+        <app-crud (read)="addProduct($event)" [mat-dialog-close]="product" [data]="list" [title]="title" [iconReadAction]="icon"
+         [createAction]="false" [updateAction]="false" [deleteAction]="false"></app-crud>
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,24 @@
+<h2>{{title}}</h2>
+<mat-dialog-content>
+
+    <mat-card>
+
+        <div class="container">
+
+            <div class="row">
+
+                <mat-label class="item">Producto: {{product.reference}}</mat-label>
+    
+                <mat-form-field class="item">
+                    <mat-label>Unidades</mat-label>
+                    <input [(ngModel)]="product.units" [ngModelOptions]="{standalone: true}" type="number" matInput placeholder="0">
+                </mat-form-field>
+            </div>
+            
+
+            <button class="btn" mat-flat-button color="warn" [mat-dialog-close]="product">Aceptar</button>
+        </div>
+
+    </mat-card>
+
+</mat-dialog-content>

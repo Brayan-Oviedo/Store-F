@@ -3,17 +3,18 @@ import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import { ProductRequest } from 'src/app/model/product/ProductRequest.model';
 
 @Component({
-  selector: 'app-product-order-creation-updating-dialog',
-  templateUrl: './product-order-creation-updating-dialog.component.html',
-  styleUrls: ['./product-order-creation-updating-dialog.component.css']
+  selector: 'app-product-update-dialog',
+  templateUrl: './product-update-dialog.component.html',
+  styleUrls: ['./product-update-dialog.component.css']
 })
-export class ProductOrderCreationUpdatingDialogComponent implements OnInit {
+export class ProductUpdateDialogComponent implements OnInit {
 
-  title: string = "";
+  title: string = '';
   product: ProductRequest = new ProductRequest();
 
+
   constructor(@Inject (MAT_DIALOG_DATA) data: ProductRequest, private dialog: MatDialog) { 
-    this.title = data ? 'Update producto' : 'Agregar producto';
+    this.title = data ? 'Editar producto' : 'Agregar producto';
     this.product = data ? data : this.product;
   }
 

@@ -4,13 +4,15 @@ import { HomeRoutingModule } from './home-routing.module';
 import { FormOrderComponent } from './form-order/form-order.component';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ProductOrderCreationUpdatingDialogComponent } from './product/product-order-creation-updating-dialog/product-order-creation-updating-dialog.component';
+import { ProductUpdateDialogComponent } from './product/product-order-creation-updating-dialog/product-update.component';
+import { FormOrderSeparateComponent } from './form-order-separate/form-order-separate.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     FormOrderComponent,
-    ProductOrderCreationUpdatingDialogComponent
+    ProductUpdateDialogComponent,
+    FormOrderSeparateComponent
   ],
   imports: [
     MaterialModule,

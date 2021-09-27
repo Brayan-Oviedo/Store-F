@@ -1,16 +1,16 @@
 import { Input } from '@angular/core';
-import { ViewChild, ViewEncapsulation } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTable } from '@angular/material/table';
 import { of } from 'rxjs';
 import { Client } from 'src/app/model/client/Client.model';
 import { OrderSaleRequest } from 'src/app/model/order/OrderSaleRequest.model';
 import { ProductRequest } from 'src/app/model/product/ProductRequest.model';
 import { OrderService } from 'src/app/service/order.service';
+import { ProductListComponent } from 'src/app/shared/components/product-list/product-list.component';
 import { OrderSeparateRequest } from '../../../model/order/OrderSeparateRequest.model';
-import { ProductOrderCreationUpdatingDialogComponent } from '../product/product-order-creation-updating-dialog/product-order-creation-updating-dialog.component';
+import { ProductUpdateDialogComponent } from '../product/product-order-creation-updating-dialog/product-update.component';
 
 @Component({
   selector: 'app-form-order',
@@ -20,15 +20,14 @@ import { ProductOrderCreationUpdatingDialogComponent } from '../product/product-
 })
 export class FormOrderComponent implements OnInit {
 
-  @Input() products = [];
+  products = [];
 
   title = 'Products';
   order = new OrderSaleRequest();
   list = of(this.order.products);
-  client: Client = new Client();
   formClient!: FormGroup;
-  formOrder!: FormGroup;
-  orderSeparate: OrderSeparateRequest = new OrderSeparateRequest();
+  client: Client = new Client();
+
 
 
   constructor(
@@ -44,23 +43,16 @@ export class FormOrderComponent implements OnInit {
       identification: [''],
       phoneNumber: ['', Validators.minLength(7)]
     })
-    this.formClient.patchValue(this.client);
-
-    this.formOrder = this.formBuilder.group({
-      bussinessDays: [''],
-      payReceived: ['']
-    })
-    this.formOrder.patchValue(this.client);
     
   }
 
   create(): void {
-    this.dialog.open(ProductOrderCreationUpdatingDialogComponent)
+    this.dialog.open(ProductListComponent)
       .afterClosed()
       .subscribe(product => {
         if (product) {
-          this.order.products.push(product);
-          this.list = of(this.order.products);
+          let productReq = new ProductRequest(product.reference)
+          this.update(productReq)
         }
       });
   }
@@ -76,7 +68,7 @@ export class FormOrderComponent implements OnInit {
 
   update(product: ProductRequest): void {
 
-    this.dialog.open(ProductOrderCreationUpdatingDialogComponent, { data: product })
+    this.dialog.open(ProductUpdateDialogComponent, { data: product })
       .afterClosed()
       .subscribe(product => {
         if (product) {
@@ -84,6 +76,8 @@ export class FormOrderComponent implements OnInit {
 
           if (i !== -1) {
             this.order.products.splice(i, 1, product);
+          }else {
+            this.order.products.push(product)
           }
 
           this.list = of(this.order.products);
@@ -102,9 +96,13 @@ export class FormOrderComponent implements OnInit {
   }
 
   setOrder() {
+    this.formClient.patchValue(this.client);
+    this.order.client = new Client('Fan', '123', 123);
+    console.log('client: ' + this.client.name)
     this.orderService.createOrderSale(this.order)
     .subscribe(
       result => {
+        this.order.totalCost = result.totalCost
         console.log('result: ' + result);
       },fail => {
         console.log('exception: ' + fail.error.mssg);
@@ -114,7 +112,7 @@ export class FormOrderComponent implements OnInit {
   }
 
   cancelOrder() {
-    this.orderService.canceleOrderSale(1)
+    this.orderService.cancelOrderSale(1)
     .subscribe(
       result => {
         console.log('result: ' + result);

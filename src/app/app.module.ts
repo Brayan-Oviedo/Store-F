@@ -11,7 +11,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 import { DatePipe } from '@angular/common';
-import { ListProductsComponent } from './components/shared/list-products/list-products.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './shared/core.module';
@@ -21,8 +20,7 @@ import { CoreModule } from './shared/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    ListProductsComponent
+    MenuComponent
   ],
   imports: [
     BrowserAnimationsModule,
