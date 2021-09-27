@@ -9,7 +9,6 @@ import { OrderSaleRequest } from 'src/app/model/order/OrderSaleRequest.model';
 import { ProductRequest } from 'src/app/model/product/ProductRequest.model';
 import { OrderService } from 'src/app/service/order.service';
 import { ProductListComponent } from 'src/app/shared/components/product-list/product-list.component';
-import { OrderSeparateRequest } from '../../../model/order/OrderSeparateRequest.model';
 import { ProductUpdateDialogComponent } from '../product/product-order-creation-updating-dialog/product-update.component';
 
 @Component({
