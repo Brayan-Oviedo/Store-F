@@ -9,6 +9,7 @@ import { OrderSaleRequest } from 'src/app/model/order/OrderSaleRequest.model';
 import { ProductRequest } from 'src/app/model/product/ProductRequest.model';
 import { OrderService } from 'src/app/service/order.service';
 import { ProductListComponent } from 'src/app/shared/components/product-list/product-list.component';
+import { Message } from 'src/app/shared/utils/Message';
 import { ProductUpdateDialogComponent } from '../product/product-order-creation-updating-dialog/product-update.component';
 
 @Component({
@@ -21,7 +22,7 @@ export class FormOrderComponent implements OnInit {
 
   products = [];
 
-  title = 'Products';
+  title = 'Productos';
   order = new OrderSaleRequest();
   list = of(this.order.products);
   formClient!: FormGroup;
@@ -57,12 +58,6 @@ export class FormOrderComponent implements OnInit {
   }
 
   read(article: any): void {
-    /*this.dialog.open(ReadDetailDialogComponent, {
-      data: {
-        title: 'Article Details',
-        object: this.articleService.read(article.barcode)
-      }
-    });*/
   }
 
   update(product: ProductRequest): void {
@@ -97,15 +92,13 @@ export class FormOrderComponent implements OnInit {
   setOrder() {
     this.formClient.patchValue(this.client);
     this.order.client = new Client('Fan', '123', 123);
-    console.log('client: ' + this.client.name)
     this.orderService.createOrderSale(this.order)
     .subscribe(
       result => {
-        this.order.totalCost = result.totalCost
-        console.log('result: ' + result);
+        this.order.totalCost = result.totalCost;
+        Message.throwMessageSuccess('', '');
       },fail => {
-        console.log('exception: ' + fail.error.mssg);
-        console.log('exception: ' + fail.error);
+        Message.throwMessageError('', fail.error.mssg);
       }
     );
   }
