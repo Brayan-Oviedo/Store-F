@@ -91,7 +91,6 @@ export class FormOrderComponent implements OnInit {
 
   setOrder() {
     this.formClient.patchValue(this.client);
-    this.order.client = new Client('Fan', '123', 123);
     this.orderService.createOrderSale(this.order)
     .subscribe(
       result => {
